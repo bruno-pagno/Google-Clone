@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Welcome to Doodle</title>
+    <title>Welcome to Boogle</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <div class="mainSection">
-    
-        <div class="logoContainer">
-            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Doodle Logo">        
-        </div>
-    
-        <div class="searchContainer">
-            <input class="searchBox" type="text" name="term">
-            <input class="searchButton" type="submit" value="Search">
+    <div class="wrapper indexPage">
+
+        <div class="mainSection">
+        
+            <div class="logoContainer">
+                <img src="assets/images/logo.png" alt="Boogle Logo">        
+            </div>
+        
+            <div class="searchContainer">
+
+                <form action="search.php" method="GET">
+                    <input class="searchBox" type="text" name="term">
+                    <input class="searchButton" type="submit" value="Search">
+                </form>
+
+            </div>
 
         </div>
 
     </div>
 
-
-    
 </body>
 </html>
