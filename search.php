@@ -1,4 +1,5 @@
 <?php
+    include("config.php");
     $term = $_GET["term"];
     if($term == "")exit("You must enter a search term!");
 

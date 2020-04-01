@@ -3,6 +3,12 @@
 <head>
     <title>Welcome to Boogle</title>
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Search for images and Sites">
+    <meta name="keywords" content="keywords, search, broogle, images, sites">
+    <meta name="author" content="Bruno Pagno">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
