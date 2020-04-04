@@ -1,6 +1,8 @@
 <?php
     include("config.php");
     include("classes/siteResultsProvider.php");
+    include("classes/imageResultsProvider.php");
+
     $term = $_GET["term"];
     if($term == "")exit("You must enter a search term!");
 
@@ -15,7 +17,11 @@
 <html lang="en">
 <head>
     <title>Welcome to Boogle</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -36,7 +42,7 @@
                     <form action="search.php" method="GET">
                     
                         <div class="searchBarContainer">
-
+                            <input type="hidden" name="type" value="<?php echo $type; ?>">
                             <input type="text" class="searchBox" name="term" value="<?php echo $term?>">
                             <button class="searchButton">
                                 <img src="assets/images/icons/searchIcon.png" alt="Search Icon">
@@ -79,9 +85,13 @@
         
         <div class="mainResultsSection">
             <?php
-            
-            $pageSize = 20;
-            $resultsProvider = new siteResultsProvider($con);
+            if($type == "sites") {
+                $pageSize = 20;
+                $resultsProvider = new siteResultsProvider($con);
+            }else {
+                $resultsProvider = new imageResultsProvider($con);
+                $pageSize = 30;
+            }
             $numResults = $resultsProvider->getNumResults($term);
             echo "<p class='resultsCount'>$numResults results found</p>";
 
@@ -147,6 +157,8 @@
         </div>
 
     </div>
-
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
 </body>
 </html>
